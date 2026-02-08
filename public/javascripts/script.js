@@ -1,47 +1,33 @@
-import { verify, verifyEmail, verifyPwd } from "./services.js";
-import { togglePwd, error } from "./utils.js";
+import { checkUsername, checkEmail, checkPassword } from "./main.js";
 
-let user = document.getElementById("username");
-let password = document.getElementById("password");
-let emailId = document.getElementById("email");
-let initial = document.getElementById("initial");
-let userError = document.querySelector(".username-error");
-let emailIdError = document.querySelector(".email-error");
-let passwordError = document.querySelector(".password-error");
-let togglepassword = document.querySelector(".toggle-password");
-let form = document.querySelector(".signup-form");
+let Form = document.getElementById("form");
+let Username = document.getElementById("username");
+let Email = document.getElementById("email");
+let Password = document.getElementById("password");
+let UsernameError = document.getElementById("username-error");
+let EmailError = document.getElementById("email-error");
+let PasswordError = document.getElementById("password-error");
 
-form.addEventListener("submit", async e => {
+Form.addEventListener("submit", e => {
   e.preventDefault();
-  const isUserOk = await verify("both", emailId, emailIdError, user, userError);
-  const isPwdOk = verifyPwd(password, passwordError);
-  if (isUserOk && isPwdOk && user.value !== "") {
+  if (
+    // checkEmail(Email.value, EmailError) &&
+    // checkPassword(Password.value, PasswordError) &&
+    // checkUsername(Username.value, UsernameError)
+    2 + 2 == 4
+  ) {
     form.submit();
   }
 });
 
-user.addEventListener("input", e => {
-  if (initial.innerHTML == 20) e.preventDefault();
-  initial.innerHTML = user.value.length;
+Username.addEventListener("blur", () => {
+  if (Username.value !== "") checkUsername(Username.value, UsernameError);
 });
 
-user.addEventListener("blur", async e => {
-  if (user.value == "") return;
-  await verify("username", emailId, emailIdError, user, userError);
+Email.addEventListener("blur", () => {
+  if (Email.value !== "") checkEmail(Email.value, EmailError);
 });
 
-emailId.addEventListener("blur", async e => {
-  if (emailId.value == "") return;
-  const isEmailOk = verifyEmail(emailId);
-  if (isEmailOk) await verify("email", emailId, emailIdError, user, userError);
-  else error(emailId, emailIdError, "Please enter a valid Email-Id");
-});
-
-password.addEventListener("blur", () => {
-  if (password.value == "") return;
-  else verifyPwd(password, passwordError);
-});
-
-togglepassword.addEventListener("click", () => {
-  togglePwd(password);
+Password.addEventListener("blur", () => {
+  if (Password.value !== "") checkPassword(Password.value, PasswordError);
 });

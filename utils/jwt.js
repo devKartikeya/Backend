@@ -1,9 +1,8 @@
-const jwt = require("jsonwebtoken");
+var jwt = require("jsonwebtoken");
 
-var config = require("../config.js");
+function generateToken(payLoad) {
+    const token = jwt.sign(payLoad, process.env.SECRET) 
+    return token;
+}
 
-exports.signToken = payLoad => {
-  return jwt.sign(payLoad, config.SECRET, {
-    expiresIn: "15M"
-  });
-};
+module.exports = generateToken;

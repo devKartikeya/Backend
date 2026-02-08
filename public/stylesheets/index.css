@@ -1,0 +1,165 @@
+/* Poppins + Roboto + Baloo Bhai 2 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main:        #f0f4ff;       /* very light blue-violet */
+  --card-bg:        #ffffff;
+  --header-bg:      #a3d9ff;       /* soft sky blue */
+  --accent:         #6366f1;       /* indigo-600 */
+  --accent-hover:   #4f46e5;       /* indigo-700 */
+  --text-primary:   #1e293b;       /* slate-900 */
+  --text-secondary: #475569;       /* slate-600 */
+  --border:         #cbd5e1;       /* slate-200 */
+  --placeholder:    #94a3b8;       /* slate-400 */
+  --success:        #10b981;       /* emerald-500 */
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: var(--bg-main);
+}
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  min-height: 580px;
+  background: var(--card-bg);
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08),
+              0 8px 20px rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--border);
+}
+
+.head {
+  width: 100%;
+  padding: 2.2rem 1rem 1.8rem;
+  background: var(--header-bg);
+  text-align: center;
+  border-top-left-radius: 1.75rem;
+  border-top-right-radius: 1.75rem;
+}
+
+.head h2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 2.1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.input-box {
+  width: 100%;
+  padding: 2.5rem 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  flex-grow: 1;
+}
+
+input {
+  width: 100%;
+  height: 3.1rem;
+  padding: 0 1.4rem;
+  border: 1.5px solid var(--border);
+  border-radius: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: #fafbff;
+  transition: all 0.18s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+input::placeholder {
+  color: var(--placeholder);
+  font-weight: 400;
+}
+
+/* Terms & Login section */
+.terms-log {
+  width: 100%;
+  padding: 1.8rem 2.5rem 2.2rem;
+  text-align: center;
+  font-family: "Baloo Bhai 2", cursive;
+  font-size: 0.97rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.terms-log span {
+  font-family: "Baloo Bhai 2", cursive;
+}
+
+.terms-log span span {
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.terms-log span span:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Optional: nice button style (you can add <button> in HTML) */
+button {
+  width: 100%;
+  height: 3.3rem;
+  margin: 0.5rem 0 1rem;
+  background: var(--accent);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 0.9rem;
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.error {
+  height: 0.4rem;
+  width: 100%;
+  color: red;
+  font-family: "Baloo Bhai 2";
+  display: flex;
+  align-items: center;
+  padding-left: 0.4rem;
+}

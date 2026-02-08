@@ -10,60 +10,36 @@
       href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
   </head>
   <body>
     <div class="root">
-      <form class="signup-form" action="/signup" method="POST">
-        <div class="form-header">
-          <h1>Create Your Account</h1>
+      <form action="/sign-up" method="POST" id="form">
+        <div class="head"><h2>Create Your Account</h2></div>
+        <div class="input-box">
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            id="username"
+          />
+          <div class="error" id="username-error"></div>
+          <input type="email" placeholder="Gmail" name="email" id="email" />
+          <div class="error" id="email-error"></div>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            id="password"
+          />
+          <div class="error" id="password-error"></div>
+          <button type="submit" id="button">Submit</button>
         </div>
-
-        <div class="form-body">
-          <div class="input-group">
-            <label for="username">Username</label>
-            <div class="username-wrapper">
-              <input type="text" id="username" name="username" maxlength="20" />
-              <span class="char-limit"
-                ><span id="initial" style="color: black">0</span>
-                <span id="max" style="color: black"> / 20</span>
-              </span>
-            </div>
-            <div class="username-error"></div>
-          </div>
-
-          <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-            <div class="email-error"></div>
-          </div>
-
-          <div class="input-group">
-            <label for="password">Password</label>
-            <div class="password-wrapper">
-              <input type="password" id="password" name="password" />
-              <button
-                type="button"
-                class="toggle-password"
-                aria-label="Toggle password visibility"
-              >
-                👁️
-              </button>
-            </div>
-          </div>
-          <div class="password-error"></div>
-        </div>
-
-        <button type="submit" class="btn-primary">Create Account</button>
-
-        <div class="form-footer">
-          <p class="terms">
-            By signing up, you agree to our
-            <a href="">Privacy Policy</a> and <a href="">Terms of Service</a>.
-          </p>
-          <p class="login-link">
-            Already have an account? <a href="/login">Log in</a>
-          </p>
+        <div class="terms-log">
+          <span>Read our <span>Terms and Conditions</span></span>
+          <span
+            >Already have an account? <span><a href="/login">Log-In</a></span></span
+          >
         </div>
       </form>
     </div>

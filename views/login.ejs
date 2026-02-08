@@ -1,48 +1,56 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
+    <title>Login | Lumina Travels</title>
     <link rel="stylesheet" href="/stylesheets/login.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
+    <div class="background-circles">
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+
     <div class="login-container">
-      <div class="login-card">
-        <h1>Welcome back</h1>
-        <p class="subtitle">Please enter your details to sign in</p>
+      <form class="login-form">
+        <h2>Welcome Back</h2>
+        <p>Enter your details to continue your journey.</p>
 
-        <form action="/sign-in" method="POST">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" />
-          </div>
-
-          <button type="submit" class="btn-primary">
-            Sign in
-          </button>
-        </form>
-
-        <p class="forgot-password">
-          <a href="">Forgot password?</a>
-        </p>
-
-        <div class="signup-link">
-          Don't have an account? <a href="/">Sign up</a>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
         </div>
-      </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+
+        <div class="options">
+          <label><input type="checkbox" /> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="login-btn">Sign In</button>
+
+        <div class="divider">
+          <span>or login with</span>
+        </div>
+
+        <div class="social-login">
+          <button type="button" class="social-btn">Google</button>
+          <button type="button" class="social-btn">Apple</button>
+        </div>
+
+        <p class="signup-link">
+          Don't have an account? <a href="/">Sign up for free</a>
+        </p>
+      </form>
     </div>
   </body>
 </html>
