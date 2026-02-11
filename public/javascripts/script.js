@@ -1,4 +1,4 @@
-import { checkUsername, checkEmail, checkPassword } from "./main.js";
+import { checkUsername, checkEmail, checkPassword, error } from "./main.js";
 
 let Form = document.getElementById("form");
 let Username = document.getElementById("username");
@@ -8,14 +8,14 @@ let UsernameError = document.getElementById("username-error");
 let EmailError = document.getElementById("email-error");
 let PasswordError = document.getElementById("password-error");
 
-Form.addEventListener("submit", e => {
+Form.addEventListener("submit", async e => {
   e.preventDefault();
-  if (
-    // checkEmail(Email.value, EmailError) &&
-    // checkPassword(Password.value, PasswordError) &&
-    // checkUsername(Username.value, UsernameError)
-    2 + 2 == 4
-  ) {
+  const isValid =
+    await checkEmail(Email.value, EmailError) &&
+    checkPassword(Password.value, PasswordError) &&
+    await checkUsername(Username.value, UsernameError);
+
+  if (isValid) {
     form.submit();
   }
 });

@@ -7,15 +7,30 @@ function checkUser(req, res, next) {
     !validator.isAlphanumeric(username) ||
     !validator.isLength(username, { min: 6 })
   ) {
-    return res.send(`Not a valid Username`);
+    return  res.redirect('/');;
   }
   if (!validator.isLength(password, { min: 6 })) {
-    return res.send(`Password length is smaller than 6`);
+    return  res.redirect('/');;
   }
   if (!validator.isEmail(email) || !email.endsWith('@gmail.com')){
-    return res.send(`Invalid email`);
+    return  res.redirect('/');;
   }
   next();
 }
 
-module.exports = checkUser;
+
+function verifyLogin(req, res, next) {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    return res.json({ success: false, field: "email" });
+  }
+  if (!validator.isEmail(email) || !email.endsWith('@gmail.com')) {
+    return res.json({ success: false, field: "email" });
+  }
+  if (!validator.isLength(password, { min: 6 })) {
+    return res.json({ success: false, field: "password" });
+  }
+  next();
+}
+
+module.exports = { checkUser, verifyLogin };

@@ -1,23 +1,21 @@
 var express = require("express");
 var router = express.Router();
-var multer = require("multer");
 
 const authController = require("../controllers/auth.controller");
-const checkUser = require("../middlewares/auth.middleware");
-var logger = require("../utils/logger");
-const upload = multer();
+const pageController = require("../controllers/page.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
+const isLoggedIn = require("../middlewares/isLoggedIn.middleware")
 
-router.get('/', (req, res) => {
-  logger.info("Sign-up Page");
-  res.render('index', { title: "Express" });
-});
+router.get("/", pageController.showIndexPage);
 
-router.get('/home', authController.showHomePage);
+router.post("/sign-up", authMiddleware.checkUser, authController.register);
 
-router.get('/login', (req, res) => {
-  res.render('login');
-})
+router.get("/home", isLoggedIn, pageController.showHomePage);
 
-router.post('/sign-up', checkUser, authController.register);
+router.get("/login", pageController.showLoginPage);
+
+router.post("/checkUser", authController.checkUser);
+
+router.post("/log-in", authMiddleware.verifyLogin, authController.login)
 
 module.exports = router;

@@ -17,18 +17,20 @@
     </div>
 
     <div class="login-container">
-      <form class="login-form">
+      <form class="login-form" id="form" action="/log-in" method="POST">
         <h2>Welcome Back</h2>
         <p>Enter your details to continue your journey.</p>
 
         <div class="input-group">
           <label for="email">Email</label>
-          <input type="email" id="email" required />
+          <input type="email" id="email"name="email" required />
+          <div class="error" id="email-error"></div>
         </div>
 
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" required />
+          <input type="password" id="password" name="password" required />
+          <div class="error" id="password-error"></div>
         </div>
 
         <div class="options">
@@ -52,5 +54,6 @@
         </p>
       </form>
     </div>
+    <script type="module" src="/javascripts/login.js"></script>
   </body>
 </html>
