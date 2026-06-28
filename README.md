@@ -14,13 +14,17 @@ This repository showcases a structured backend application designed to illustrat
 
 🚀 Features
 
+MVC Design Pattern
+
 RESTful API design
 
 CRUD operations (Create, Read, Update, Delete)
 
-User authentication & authorization (if implemented)
+User authentication & authorization
 
 Middleware handling
+
+Rendering Views through EJS
 
 Error handling and validation
 
@@ -142,3 +146,5 @@ This is a learning project, but suggestions and improvements are welcome!
 ⭐ Support
 
 If you find this helpful, consider giving it a star ⭐
+
+Built by trust 💯 and love 🫶 by Kartikeya Mishra as my initial attempt to create stable backends. 
